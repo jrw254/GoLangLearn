@@ -37,13 +37,22 @@ func keyPress() {
         )
 		log.Printf("%v %v", lop, err)
     } 
+
+    func counter() {
+	for i := 0; i >= 0;  {
+	fmt.Println("Rotations:", i)
+	time.Sleep(time.Second * 464) // Time set to repeat the function
+	i++
+	}
+     }
 	
     func main() {
-		allDone := make(chan bool)  
+		allDone := make(chan bool)  // Ends the timer
 		tick := time.NewTicker(462 * time.Second) // --7.7 minutes or 462 Second, each loop length
-		tn := time.Now()
+		tn := time.Now() // Starts off with current time
 			fmt.Printf("%s", tn)
 			fmt.Println("\n.....Initializing.....")
+	    go counter() 
 			go func() {
 				for {
 					select {
